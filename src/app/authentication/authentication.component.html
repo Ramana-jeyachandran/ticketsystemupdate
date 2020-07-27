@@ -1,0 +1,66 @@
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="card-body mx-auto" style="max-width: 400px;margin-left: 0%;">
+	<h4 class="card-title mt-3 text-center">Create Account</h4>
+	
+	<p class="divider-text">
+        
+    </p>
+	<form [formGroup]="myform">
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input  class="form-control" placeholder="Username" type="text" formControlName="username">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        <input  class="form-control" placeholder="Email address" type="email" formControlName="email">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	
+		
+        User<input value="ROLE_USER" class="form-control" placeholder="Phone number" type="checkbox" formArrayName="roles">
+        Agent<input value="ROLE_AGENT" class="form-control" placeholder="Phone number" type="checkbox" formArrayName="roles">
+    </div>
+    
+    <!-- form-group end.// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Create password" type="password" formControlName="password">
+    </div> <!-- form-group// -->
+    
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Repeat password" type="password" formControlName="confirmpassword">
+    </div> <!-- form-group// -->                                      
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" (click)="check()"> Create Account  </button>
+    </div> <!-- form-group// -->      
+    <p class="text-center">Have an account? <button class="btn btn-primary" (click)="replace()">Log In</button> </p>                                                                 
+</form>
+</article>
+     <!-- card.// -->
+
+
+
+

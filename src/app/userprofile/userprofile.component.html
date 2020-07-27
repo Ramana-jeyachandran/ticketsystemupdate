@@ -1,0 +1,39 @@
+
+
+<article class="card-body mx-auto" style="max-width: 400px;margin-left: 0%;">
+	
+	
+	
+       <p>Edit Profile</p>
+    
+	<form [formGroup]="myform1">
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input  class="form-control" placeholder="Username" type="text" formControlName="username">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        <input  class="form-control" placeholder="Email address" type="email" formControlName="email">
+    </div> <!-- form-group// -->
+    
+    <!-- form-group// -->
+    
+    <!-- form-group end.// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Create New password" type="password" formControlName="password">
+    </div> <!-- form-group// -->
+    
+  <!-- form-group// -->                                      
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" (click)="editAccount()"> Edit Account  </button>
+    </div> <!-- form-group// -->      
+    <p class="text-center">Have an account? <button class="btn btn-primary" >Log In</button> </p>                                                                 
+</form>
+</article>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+</head>
+
+<body class="sb-nav-fixed" style="margin-bottom:100%;">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" >FreshDesk</a>
+        
+        <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add Tickets</button><br><br>
+        
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+            <div class="input-group">
+                
+                <button class="btn btn-primary" (click)="logout()">Log out</button><br><br>
+            </div>
+        </form>
+        <!-- Navbar-->
+        
+    </nav>
+    <h1>Tickets</h1>
+    <div id="layoutSidenav">
+       
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Requester Name</th>
+                        <th>cc_mails</th>
+                        <th>Priority</th>
+                        <th>Subject</th>
+                        <th>type</th>
+                        <th>solution</th>
+                        <th>Email</th>
+                        <th>delete</th>
+                        <th>edit</th>
+
+                    </tr>
+                </thead>
+
+
+
+                <tbody>
+                    <tr *ngFor="let ticket of tickets[0]">
+                        <td>{{ticket.requestername}}</td>
+                        <td>{{ticket.cc_mails}}</td>
+                        <td>{{ticket.priority}}</td>
+                        <td>{{ticket.subject}}</td>
+                        <td>{{ticket.type}}</td>
+                        <td>{{ticket.solution}}</td>
+                        <td>{{ticket.email}}</td>
+                        <td><button class="btn btn-primary" (click)="delete(ticket.id)">Delete</button></td>
+                        <td><button class="btn btn-primary" (click)="open1(content1,ticket.id)">Update</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="layoutSidenav_content">
+            <main>
+                <ng-template #content let-modal>
+
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">Add Tickets</h4>
+
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="myform">
+                            <div class="form-group">
+                              <label for="formGroupExampleInput">Requester id</label>
+                              <input formControlName="requesterid" type="number" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                              <label for="formGroupExampleInput2">Requestername</label>
+                              <input type="text" formControlName="requestername"  class="form-control" >
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">email</label>
+                                <input type="text" formControlName="email"  class="form-control"  >
+                              </div>
+                              
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">PhoneNumber</label>
+                                <input type="number" formControlName="phonenumber"  class="form-control"  >
+                              </div>
+                              <div class="form-group">
+                                <label for="formGroupExampleInput2">Priority</label>
+                                <select name="cars" id="cars" form="carform" formControlName="priority" >
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                  </select>
+                              </div>
+                              <div class="form-group">
+                                  
+                                Enter the cc_mails here
+                                <input type="text" formControlName="ccmails" class="form-control">
+                               
+                              </div>
+                              <div class="form-group">
+                                <label for="formGroupExampleInput2">Subject</label>
+                                <input type="text" formControlName="subject"  class="form-control"  >
+                              </div>
+                              <div class="form-group">
+                                <label for="formGroupExampleInput2">Type</label>
+                                <input type="text" formControlName="type"  class="form-control"  >
+                              </div>
+                            
+                          </form>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark"
+                            (click)="modal.close('Save click')">Add Tickets</button>
+                            
+                    </div>
+
+                </ng-template>
+                <ng-template #content1 let-modal>
+
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">Update Tickets</h4>
+
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="myform">
+                            <div class="form-group">
+                              <label for="formGroupExampleInput">Requester id</label>
+                              <input formControlName="requesterid" type="number" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                              <label for="formGroupExampleInput2">Requestername</label>
+                              <input type="text" formControlName="requestername"  class="form-control"  >
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">email</label>
+                                <input type="text" formControlName="email"  class="form-control"  >
+                              </div>
+                              
+                            <div class="form-group">
+                                <label for="formGroupExampleInput2">PhoneNumber</label>
+                                <input type="number" formControlName="phonenumber"  class="form-control"  >
+                              </div>
+                              <!-- <div class="form-group">
+                                <label for="formGroupExampleInput2">Priority</label>
+                                <select name="cars" id="cars" form="carform" formControlName="priority" >
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                  </select>
+                              </div> -->
+                              <div class="form-group">
+                                  
+                                Enter the cc_mails here
+                                <input type="text" formControlName="ccmails" class="form-control">
+                               
+                              </div>
+                              <div class="form-group">
+                                <label for="formGroupExampleInput2">Subject</label>
+                                <input type="text" formControlName="subject"  class="form-control"  placeholder="Another input">
+                              </div>
+                              <div class="form-group">
+                                <label for="formGroupExampleInput2">Type</label>
+                                <input type="text" formControlName="type"  class="form-control"  placeholder="Another input">
+                              </div>
+                            
+                          </form>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark"
+                            (click)="modal.close('Save click')">Add Tickets</button>
+                            
+                    </div>
+
+                </ng-template>
+
+                <div class="container-fluid">
+
+                    <div class="card mb-4">
+
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

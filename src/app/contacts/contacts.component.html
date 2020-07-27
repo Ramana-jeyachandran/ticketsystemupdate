@@ -1,0 +1,33 @@
+<h1>Contacts</h1><br><br>
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Requester Name</th>
+                
+                
+                <th>Phone number</th>
+                <th>Email</th>
+                <th>Requester id</th>
+                <th>delete</th>
+                <th>edit</th>
+
+            </tr>
+        </thead>
+
+
+
+        <tbody>
+             <tr *ngFor="let contact of contacts[0]">
+                <td>{{contact.requestername}}</td>
+                <td>{{contact.phonenumber}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.requesterid}}</td>
+                
+                <td><button class="btn btn-primary" (click)="delete(ticket.id)">Delete</button></td>
+                <td><button class="btn btn-primary" (click)="make(contact.id)">Make Agent</button></td>
+            </tr> 
+        </tbody>
+    </table>
+</div>
+
