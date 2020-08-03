@@ -51,7 +51,7 @@
                 <tbody>
                     <tr *ngFor="let ticket of tickets[0]">
                         <td>{{ticket.requestername}}</td>
-                        <td>{{ticket.cc_mails}}</td>
+                        <td>{{ticket.ccmails}}</td>
                         <td>{{ticket.priority}}</td>
                         <td>{{ticket.subject}}</td>
                         <td>{{ticket.type}}</td>
@@ -93,7 +93,7 @@
                               
                             <div class="form-group">
                                 <label for="formGroupExampleInput2">PhoneNumber</label>
-                                <input type="number" formControlName="phonenumber"  class="form-control"  >
+                                <input type="text" formControlName="phonenumber"  class="form-control"  >
                               </div>
                               <div class="form-group">
                                 <label for="formGroupExampleInput2">Priority</label>
@@ -187,7 +187,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-dark"
-                            (click)="modal.close('Save click')">Add Tickets</button>
+                            (click)="modal.close('Save click')">Update Tickets</button>
                             
                     </div>
 

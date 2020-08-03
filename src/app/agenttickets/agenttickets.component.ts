@@ -21,7 +21,7 @@ export class AgentticketsComponent implements OnInit {
         console.log(this.tickets);
       },
       (error) => {
-        alert("You Have Not created any tickets");
+        alert("You have no assigned tickets");
       }
     );
     this.myform = this.formbuilder.group({

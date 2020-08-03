@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit {
         "email": this.formbuilder.control(data.email, [Validators.required, Validators.email]),
         "phonenumber": this.formbuilder.control(data.phonenumber, [Validators.required]),
         //"priority": this.formbuilder.control(data.requestername, [Validators.required]),
-        "ccmails": this.formbuilder.control(data.cc_mails, [Validators.required]),
+        "ccmails": this.formbuilder.control(data.ccmails, [Validators.required]),
         "subject": this.formbuilder.control(data.subject, [Validators.required]),
   
         "type": this.formbuilder.control(data.type, [Validators.required]),
@@ -90,7 +90,17 @@ export class DashboardComponent implements OnInit {
       this.ticketservice.update(localStorage.getItem("token"),id,this.myform.value).subscribe((data)=>{
         console.log("updated");
         window.location.reload();
-      })
+      },
+      (error)=>{
+        if(error.status==200)
+        {
+          window.location.reload();
+        }
+        else{
+          alert("error in updation");
+        }
+      }
+      )
 
 
     }, (reason) => {

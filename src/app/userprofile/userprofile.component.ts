@@ -31,7 +31,10 @@ export class UserprofileComponent implements OnInit {
   editAccount()
   {
     this.ticketservice.updateUser(localStorage.getItem("token"),this.myform1.value).subscribe((data)=>{},(error)=>{
+      if(error.status==200)
       alert("Profile Edited");
+      else
+      alert("Error in updation");
       console.log(error.status);
     })
   }

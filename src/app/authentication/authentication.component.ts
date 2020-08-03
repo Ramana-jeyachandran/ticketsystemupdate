@@ -27,7 +27,17 @@ export class AuthenticationComponent implements OnInit {
       this.ticketservice.register(this.myform.value).subscribe(
         (data) => {
           console.log(data);
-          window.location.reload()
+          this.router.navigateByUrl("login");
+          //window.location.reload()
+        },
+        (error)=>{
+          if(error.status==422)
+          {
+            alert("Username exists choose another name");
+          }
+          else{
+            alert("Problem in Registration");
+          }
         }
       );
     }

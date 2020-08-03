@@ -35,8 +35,8 @@
     <div class="form-group input-group">
     	
 		
-        User<input value="ROLE_USER" class="form-control" placeholder="Phone number" type="checkbox" formArrayName="roles">
-        Agent<input value="ROLE_AGENT" class="form-control" placeholder="Phone number" type="checkbox" formArrayName="roles">
+        <input value="ROLE_USER" class="form-control" placeholder="Phone number" type="hidden" formArrayName="roles">
+        <input value="ROLE_AGENT" class="form-control" placeholder="Phone number" type="hidden" formArrayName="roles">
     </div>
     
     <!-- form-group end.// -->
@@ -51,7 +51,7 @@
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input class="form-control" placeholder="Repeat password" type="password" formControlName="confirmpassword">
+        <input class="form-control" placeholder="Confirm password" type="password" formControlName="confirmpassword">
     </div> <!-- form-group// -->                                      
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block" (click)="check()"> Create Account  </button>
